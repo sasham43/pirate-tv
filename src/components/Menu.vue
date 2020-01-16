@@ -2,8 +2,8 @@
     <div class="menu">
         Menu
         <div class="hex-container">
-            <Hex></Hex>
-            <Hex></Hex>
+            <Hex icon="fa-tv" label="Currently Playing"></Hex>
+            <Hex icon="fa-info" label="About"></Hex>
             <!-- <div class="hex">
 
             </div>
@@ -35,8 +35,13 @@ body {
 
 .hex-container {
     width: 100%;
-    padding: 25px;
+    /* padding: 25px; */
     min-height: 300px;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+    justify-items: center;
 }
 
 

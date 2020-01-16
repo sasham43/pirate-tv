@@ -1,17 +1,36 @@
 <template>
     <div class="hex">
-        <i class="fas fa-camera"></i>
+        <i v-if="icon" class="fas" :class="icon"></i>
+        <div class="hex-label">
+            {{label}}
+        </div>
     </div>
 </template>
 
 <script>
-
+export default {
+    name: 'Hex',
+    props: {
+        icon: String,
+        label: String
+    }
+}
 </script>
 
 <style scoped>
-
+.hex:hover .fas {
+    opacity: 0;
+}
+.hex:hover .hex-label {
+    opacity: 1;
+}
+.hex-label {
+    opacity: 0;
+    color: #000;
+}
 .fas {
-    color: black;
+    color: #000;
+    position: absolute;
 }
 .hex {
     margin-top: 30px;
@@ -21,6 +40,11 @@
     position: relative;
     display: inline-block;
     margin-left: 4px;
+    
+    display: grid;
+        align-items: center;
+        justify-items: center;
+
 }
 .hex:before {
     content: " ";
