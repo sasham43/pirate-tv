@@ -34,14 +34,16 @@ body {
 }
 
 .hex-container {
-    width: 100%;
-    /* padding: 25px; */
+    /* width: 100%; */
     min-height: 300px;
-
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(10, 1fr); */
     align-items: center;
     justify-items: center;
+
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 
