@@ -7,9 +7,9 @@
             <Hex icon="fa-random" label="Shuffle"></Hex>
             <Hex icon="fa-list" label="All Channels"></Hex>
             <div class="even-row">
-
                 <Hex icon="fa-check-double" label="Test Pattern"></Hex>
                 <Hex icon="fa-power-off" label="Disable"></Hex>
+                <Hex icon="" label=""></Hex>
             </div>
         </div>
     </div>
@@ -46,6 +46,8 @@ body {
 } */
 .hex-container {
     /* width: 100%; */
+    width: 500px;
+    margin: 0 auto;
     min-height: 300px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -53,8 +55,8 @@ body {
     align-items: center;
     justify-items: center;
 
-    padding-left: 25%;
-    padding-right: 25%;
+    /* padding-left: 25%;
+    padding-right: 25%; */
 }
 
 

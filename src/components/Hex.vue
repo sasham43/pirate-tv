@@ -31,12 +31,16 @@ export default {
     /* opacity: 1; */
     display: block;
 }
+.even-row .hex {
+    margin-top: -65px;
+    margin-right: -125px;
+}
 .hex-content{
     height: 60px;
     display: grid;
-        align-items: center;
-        justify-items: center;
-        position: relative;
+    align-items: center;
+    justify-items: center;
+    position: relative;
 }
 .hex-label {
     /* opacity: 0; */
