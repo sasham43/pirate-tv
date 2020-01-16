@@ -1,8 +1,10 @@
 <template>
     <div class="hex">
-        <i v-if="icon" class="fas" :class="icon"></i>
-        <div class="hex-label">
-            {{label}}
+        <div class="hex-content">
+            <i v-if="icon" class="fas" :class="icon"></i>
+            <div class="hex-label">
+                {{label}}
+            </div>
         </div>
     </div>
 </template>
@@ -18,14 +20,27 @@ export default {
 </script>
 
 <style scoped>
+.hex:hover {
+    cursor: pointer;
+}
 .hex:hover .fas {
-    opacity: 0;
+    /* opacity: 0; */
+    display: none;
 }
 .hex:hover .hex-label {
-    opacity: 1;
+    /* opacity: 1; */
+    display: block;
+}
+.hex-content{
+    height: 60px;
+    display: grid;
+        align-items: center;
+        justify-items: center;
+        position: relative;
 }
 .hex-label {
-    opacity: 0;
+    /* opacity: 0; */
+    display: none;
     color: #000;
 }
 .fas {
@@ -40,10 +55,10 @@ export default {
     position: relative;
     display: inline-block;
     margin-left: 4px;
-    
-    display: grid;
+
+    /* display: grid;
         align-items: center;
-        justify-items: center;
+        justify-items: center; */
 
 }
 .hex:before {
