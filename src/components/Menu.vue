@@ -1,6 +1,6 @@
 <template>
     <div class="menu">
-        Menu
+        H.I.V.E. TV
         <div class="hex-container">
             <Hex icon="fa-tv" label="Currently Playing"></Hex>
             <Hex icon="fa-info" label="About"></Hex>
