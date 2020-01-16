@@ -36,27 +36,14 @@ body {
 .even-row {
     display:contents;
 }
-/* .even-row .hex:first-child {
-    margin-left:85px;
-    grid-column: span 1 / -1;
-}
-.even-row .hex:nth-child(2) {
-    margin-left:85px;
-    grid-column: span 2 / -1;
-} */
 .hex-container {
-    /* width: 100%; */
     width: 500px;
     margin: 0 auto;
     min-height: 300px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* grid-template-columns: repeat(10, 1fr); */
     align-items: center;
     justify-items: center;
-
-    /* padding-left: 25%;
-    padding-right: 25%; */
 }
 
 

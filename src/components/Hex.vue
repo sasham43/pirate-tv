@@ -24,11 +24,9 @@ export default {
     cursor: pointer;
 }
 .hex:hover .fas {
-    /* opacity: 0; */
     display: none;
 }
 .hex:hover .hex-label {
-    /* opacity: 1; */
     display: block;
 }
 .even-row .hex {
@@ -43,7 +41,6 @@ export default {
     position: relative;
 }
 .hex-label {
-    /* opacity: 0; */
     display: none;
     color: #000;
 }
