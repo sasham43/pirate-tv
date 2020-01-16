@@ -1,6 +1,6 @@
 <template>
     <div class="hex">
-
+        <i class="fas fa-camera"></i>
     </div>
 </template>
 
@@ -10,7 +10,9 @@
 
 <style scoped>
 
-
+.fas {
+    color: black;
+}
 .hex {
     margin-top: 30px;
     width: 104px;
