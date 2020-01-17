@@ -8,7 +8,10 @@
         </div>
         <div class="channel-list">
             <div @click="selectChannel(channel.id)" class="channel" v-for="channel in all_channels" :key="channel.id">
-                {{channel.id}} {{channel.name}}
+                <span>{{channel.id}} {{channel.name}}</span>
+                <span class="current-playing" v-if="current_channel == channel.id">
+                    <i class="fas fa-tv"></i>
+                </span>
             </div>
             <div @click="add_channel = true" class="channel" v-if="!add_channel">
                 <i class="fas fa-plus"></i>
@@ -44,7 +47,8 @@ export default {
             new_channel: {
                 name: '',
                 link: ''
-            }
+            },
+            current_channel: null,
         }
     },
     methods: {
@@ -74,6 +78,11 @@ export default {
             const response = await axios.post(`/api/select-channel/${id}`)
 
             return response
+        },
+        getCurrentChannel: async function(){
+            const response = await axios.get('/api/current-channel')
+
+            this.current_channel = response.data
         }
     },
     created(){
@@ -116,6 +125,10 @@ export default {
 }
 .channel:hover {
     color: #28afb0;
+}
+.currently-plaing {
+    margin-left: 10px;
+    font-size: 18px;
 }
 
 .add-channel input,
