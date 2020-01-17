@@ -89,6 +89,7 @@ export default {
             })
         },
         addChannel: async function(){
+            this.new_channel.id = this.all_channels.length,
             const response = await axios.post('/api/new-channel', this.new_channel)
 
             this.add_channel = false
