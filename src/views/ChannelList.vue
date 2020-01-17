@@ -77,6 +77,8 @@ export default {
         selectChannel: async function(id){
             const response = await axios.post(`/api/select-channel/${id}`)
 
+            this.getCurrentChannel()
+
             return response
         },
         getCurrentChannel: async function(){
