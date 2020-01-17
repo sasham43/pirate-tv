@@ -77,13 +77,13 @@ export default {
     left: 0;
 }
 
-.hex:hover {
+.outer-hex:hover .hex {
     cursor: pointer;
 }
-.hex:hover .fas {
+.outer-hex:hover .hex .fas {
     display: none;
 }
-.hex:hover .hex-label {
+.outer-hex:hover .hex .hex-label {
     display: block;
 }
 .even-row .outer-hex {
