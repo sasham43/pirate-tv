@@ -33,6 +33,17 @@ export default {
     border-top-color: #28afb0;
 }
 
+.hex:hover {
+    background-color: #000;
+    color: #28afb0;
+}
+.hex:hover:before {
+    border-bottom-color: #000;
+}
+.hex:hover:after {
+    border-top-color: #000;
+}
+
 .outer-hex {
     margin-top: 30px;
     width: 114px;
@@ -88,7 +99,7 @@ export default {
 }
 .hex-label {
     display: none;
-    color: #000;
+    /* color: #000; */
 }
 .fas {
     color: #000;
