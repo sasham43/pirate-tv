@@ -129,7 +129,7 @@ export default {
 .channel:hover {
     color: #28afb0;
 }
-.currently-plaing {
+.currently-playing {
     margin-left: 10px;
     font-size: 18px;
 }
