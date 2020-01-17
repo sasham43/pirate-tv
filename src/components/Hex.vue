@@ -23,11 +23,22 @@ export default {
 
 <style scoped>
 
+.outer-hex:hover {
+    background-color: #28afb0;
+}
+.outer-hex:hover:before {
+    border-bottom-color: #28afb0;
+}
+.outer-hex:hover:after {
+    border-top-color: #28afb0;
+}
+
 .outer-hex {
     margin-top: 30px;
     width: 114px;
     height: 70px;
-    background-color: #28AFB0;
+    /* background-color: #28AFB0; */
+    background-color: transparent;
     position: relative;
     display: inline-block;
     margin-left: 4px;
@@ -35,7 +46,8 @@ export default {
 .outer-hex:before {
     content: " ";
     width: 0; height: 0;
-    border-bottom: 35px solid #28AFB0;
+    border-bottom: 35px solid transparent;
+    /* border-bottom: 35px solid #28AFB0; */
     border-left: 57px solid transparent;
     border-right: 57px solid transparent;
     position: absolute;
@@ -47,7 +59,8 @@ export default {
     width: 0;
     position: absolute;
     bottom: -35px;
-    border-top: 35px solid #28AFB0;
+    border-top: 35px solid transparent;
+    /* border-top: 35px solid #28AFB0; */
     border-left: 57px solid transparent;
     border-right: 57px solid transparent;
     left: 0;
