@@ -7,7 +7,7 @@
             All Channels
         </div>
         <div class="channel-list">
-            <div class="channel" v-for="channel in all_channels" :key="channel.id">
+            <div @click="selectChannel(channel.id)" class="channel" v-for="channel in all_channels" :key="channel.id">
                 {{channel.id}} {{channel.name}}
             </div>
             <div @click="add_channel = true" class="channel" v-if="!add_channel">
@@ -62,7 +62,17 @@ export default {
         addChannel: async function(){
             const response = await axios.post('/api/new-channel', this.new_channel)
 
+            this.add_channel = false
+            this.new_channel = {
+                name: '',
+                link: ''
+            }
             this.getChannels()
+            return response
+        },
+        selectChannel: async function(id){
+            const response = await axios.post(`/api/select-channel/${id}`)
+
             return response
         }
     },
@@ -79,9 +89,12 @@ export default {
 .hex {
     margin-left: 5px;
 }
+.channel-header,
+.channel-list {
+    text-shadow: 0px 0px 4px;
+}
 .channel-list-container {
     color: #ec6e2f;
-    text-shadow: 0px 0px 4px;
 }
 .page-icon {
     text-align: left;
