@@ -2,7 +2,7 @@
     <div class="outer-hex">
         <div class="hex">
             <div class="hex-content">
-                <i v-if="icon" class="fas" :class="icon"></i>
+                <i v-if="icon" class="hex-icon fas" :class="icon"></i>
                 <div class="hex-label">
                     {{label}}
                 </div>
@@ -104,7 +104,7 @@ export default {
     display: none;
     /* color: #000; */
 }
-.fas {
+.hex-icon.fas {
     color: #000;
     position: absolute;
 }

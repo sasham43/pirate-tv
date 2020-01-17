@@ -10,6 +10,23 @@
             <div class="channel" v-for="channel in all_channels" :key="channel.id">
                 {{channel.id}} {{channel.name}}
             </div>
+            <div @click="add_channel = true" class="channel" v-if="!add_channel">
+                <i class="fas fa-plus"></i>
+                Add Channel
+            </div>
+            <div class="add-channel" v-if="add_channel">
+                <div class="add-channel-name">
+                    Name: <input type="text" v-model="new_channel.name" />
+                </div>
+                <div class="add-channel-link">
+                    Link: <input type="text" v-model="new_channel.link" />
+                </div>
+                <div class="add-channel-button">
+                    <button>
+                        Add New Channel
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -22,7 +39,12 @@ export default {
     name: "ChannelList",
     data: function(){
         return {
-            all_channels: []
+            all_channels: [],
+            add_channel: false,
+            new_channel: {
+                name: '',
+                link: ''
+            }
         }
     },
     methods: {
@@ -75,5 +97,33 @@ export default {
 }
 .channel:hover {
     color: #28afb0;
+}
+
+.add-channel input,
+.add-channel button {
+    padding: 5px;
+    color: #ec6e2f;
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 24px;
+    text-shadow: 0px 0px 4px;
+    outline: none;
+}
+
+.add-channel input {
+    background: transparent;
+    border: none;
+    border-bottom: solid 2px;
+    border-color: #ec6e2f;
+    color: #ec6e2f;
+}
+.add-channel button {
+    background: transparent;
+    border: solid 2px #ec6e2f;
+    margin-top: 15px;
+}
+.add-channel button:hover {
+    color: #28afb0;
+    border-color: #28afb0;
+    cursor: pointer;
 }
 </style>
