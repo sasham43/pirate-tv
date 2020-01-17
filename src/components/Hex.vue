@@ -1,9 +1,11 @@
 <template>
-    <div class="hex">
-        <div class="hex-content">
-            <i v-if="icon" class="fas" :class="icon"></i>
-            <div class="hex-label">
-                {{label}}
+    <div class="outer-hex">
+        <div class="hex">
+            <div class="hex-content">
+                <i v-if="icon" class="fas" :class="icon"></i>
+                <div class="hex-label">
+                    {{label}}
+                </div>
             </div>
         </div>
     </div>
@@ -20,6 +22,37 @@ export default {
 </script>
 
 <style scoped>
+
+.outer-hex {
+    margin-top: 30px;
+    width: 114px;
+    height: 70px;
+    background-color: #28AFB0;
+    position: relative;
+    display: inline-block;
+    margin-left: 4px;
+}
+.outer-hex:before {
+    content: " ";
+    width: 0; height: 0;
+    border-bottom: 35px solid #28AFB0;
+    border-left: 57px solid transparent;
+    border-right: 57px solid transparent;
+    position: absolute;
+    top: -35px;
+    left: 0;
+}
+.outer-hex:after {
+    content: "";
+    width: 0;
+    position: absolute;
+    bottom: -35px;
+    border-top: 35px solid #28AFB0;
+    border-left: 57px solid transparent;
+    border-right: 57px solid transparent;
+    left: 0;
+}
+
 .hex:hover {
     cursor: pointer;
 }
@@ -29,8 +62,8 @@ export default {
 .hex:hover .hex-label {
     display: block;
 }
-.even-row .hex {
-    margin-top: -65px;
+.even-row .outer-hex {
+    margin-top: -45px;
     margin-right: -125px;
 }
 .hex-content{
@@ -55,12 +88,10 @@ export default {
     background-color: #ec6e2f;
     position: relative;
     display: inline-block;
-    margin-left: 4px;
+    /* margin-left: 4px; */
 
-    /* display: grid;
-        align-items: center;
-        justify-items: center; */
-
+    margin-top: 5px;
+    z-index: 99;
 }
 .hex:before {
     content: " ";
