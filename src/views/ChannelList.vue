@@ -1,7 +1,7 @@
 <template>
     <div class="channel-list-container">
         <div class="page-icon">
-            <Hex icon="fa-list"></Hex>
+            <Hex @click.native="goToMenu()" icon="fa-list" label="Menu"></Hex>
         </div>
         <div class="channel-header">
             All Channels
@@ -31,6 +31,11 @@ export default {
 
             // console.log('response', response)
             this.all_channels = response.data
+        },
+        goToMenu: function(){
+            this.$router.push({
+                path: '/'
+            })
         }
     },
     created(){
@@ -42,7 +47,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+.hex {
+    margin-left: 5px;
+}
 .channel-list-container {
     color: #ec6e2f;
     text-shadow: 0px 0px 4px;

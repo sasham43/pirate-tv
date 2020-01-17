@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .outer-hex:hover {
     background-color: #28afb0;
