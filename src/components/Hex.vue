@@ -86,6 +86,9 @@ export default {
 .outer-hex:hover .hex .hex-label {
     display: block;
 }
+.outer-hex:hover .hex-label {
+    text-shadow: 0px 0px 4px;
+}
 .even-row .outer-hex {
     margin-top: -45px;
     margin-right: -125px;
