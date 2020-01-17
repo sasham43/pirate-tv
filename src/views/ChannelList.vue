@@ -21,8 +21,31 @@
                 <div class="add-channel-name">
                     Name: <input type="text" v-model="new_channel.name" />
                 </div>
-                <div class="add-channel-link">
+                <div v-if="new_channel.type == 'link'" class="add-channel-link">
                     Link: <input type="text" v-model="new_channel.link" />
+                </div>
+                <div v-if="new_channel.type == 'file'" class="add-channel-file">
+                    File: <input type="text" v-model="new_channel.file" />
+                </div>
+                <div class="add-channel-type">
+                    <!-- <div> -->
+                        Type:
+                    <!-- </div> -->
+                    <label for="type_radio_link">
+                        Link
+                        <div class="fake-radio" :class="{'selected-radio': new_channel.type == 'link'}">
+
+                        </div>
+                    </label>
+                    <input v-model="new_channel.type" type="radio" id="type_radio_link" value="link" name="type_radio" />
+                    <span></span>
+                    <label for="type_radio_file">
+                        File
+                        <div class="fake-radio" :class="{'selected-radio': new_channel.type == 'file'}">
+
+                        </div>
+                    </label>
+                    <input v-model="new_channel.type" type="radio" id="type_radio_file" value="file" name="type_radio" />
                 </div>
                 <div class="add-channel-button">
                     <button @click="addChannel()">
@@ -46,7 +69,9 @@ export default {
             add_channel: false,
             new_channel: {
                 name: '',
-                link: ''
+                link: '',
+                file: '',
+                type: 'link'
             },
             current_channel: null,
         }
@@ -69,7 +94,9 @@ export default {
             this.add_channel = false
             this.new_channel = {
                 name: '',
-                link: ''
+                link: '',
+                file: '',
+                type: 'link'
             }
             this.getChannels()
             return response
@@ -160,5 +187,20 @@ export default {
     color: #28afb0;
     border-color: #28afb0;
     cursor: pointer;
+}
+
+.fake-radio {
+    width: 10px;
+    height: 10px;
+    border: solid 2px #ec6e2f;
+    display: inline-block;
+}
+.selected-radio {
+    background-color: #ec6e2f;
+}
+
+#type_radio_file,
+#type_radio_link {
+    display: none;
 }
 </style>
