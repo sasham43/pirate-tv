@@ -9,7 +9,7 @@
         <div class="channel-list">
             <div @click="selectChannel(channel.id)" class="channel" v-for="channel in all_channels" :key="channel.id">
                 <span>{{channel.id}} {{channel.name}}</span>
-                <span class="current-playing" v-if="current_channel == channel.id">
+                <span class="currently-playing" v-if="current_channel == channel.id">
                     <i class="fas fa-tv"></i>
                 </span>
             </div>
