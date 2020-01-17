@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style>
-.hex {
+.page-icon .hex {
     margin-left: 5px;
 }
 .channel-header,
