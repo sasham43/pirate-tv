@@ -5,7 +5,7 @@
             <Hex icon="fa-tv" label="Currently Playing"></Hex>
             <Hex icon="fa-info" label="About"></Hex>
             <Hex icon="fa-random" label="Shuffle"></Hex>
-            <Hex icon="fa-list" label="All Channels"></Hex>
+            <Hex @click.native="getChannels()" icon="fa-list" label="All Channels"></Hex>
             <div class="even-row">
                 <Hex icon="fa-check-double" label="Test Pattern"></Hex>
                 <Hex icon="fa-power-off" label="Disable"></Hex>
@@ -17,9 +17,23 @@
 
 <script>
 import Hex from './Hex.vue'
+import axios from 'axios'
 
 export default {
     name: 'Menu',
+    data: function(){
+        return {
+            all_channels: [],
+        }
+    },
+    methods: {
+        getChannels: async function(){
+            const response = await axios.get('/api/channels')
+
+            // console.log('response', response)
+            this.all_channels = response.data
+        }
+    },
     components: {
         Hex
     }
