@@ -84,11 +84,12 @@ export default {
         getCurrentChannel: async function(){
             const response = await axios.get('/api/current-channel')
 
-            this.current_channel = response.data
+            this.current_channel = response.data.current_channel
         }
     },
     created(){
         this.getChannels()
+        this.getCurrentChannel()
     },
     components: {
         Hex
