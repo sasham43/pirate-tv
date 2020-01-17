@@ -22,7 +22,7 @@
                     Link: <input type="text" v-model="new_channel.link" />
                 </div>
                 <div class="add-channel-button">
-                    <button>
+                    <button @click="addChannel()">
                         Add New Channel
                     </button>
                 </div>
@@ -58,6 +58,12 @@ export default {
             this.$router.push({
                 path: '/'
             })
+        },
+        addChannel: async function(){
+            const response = await axios.post('/api/new-channel', this.new_channel)
+
+            this.getChannels()
+            return response
         }
     },
     created(){
