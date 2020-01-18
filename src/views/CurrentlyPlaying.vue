@@ -24,13 +24,13 @@ import Hex from '../components/Hex.vue'
 
 export default {
     name: 'CurrentlyPlaying',
-    data: function(){
-        return {
-            paused: false,
-        }
-    },
+    // data: function(){
+    //     return {
+    //         paused: false,
+    //     }
+    // },
     computed: {
-        ...mapGetters('channels', ['currentChannel', 'currentlyPlaying'])
+        ...mapGetters('channels', ['currentChannel', 'currentlyPlaying', 'paused'])
     },
     methods: {
         ...mapActions('channels', ['getCurrentChannel', 'getChannel', 'pause', 'resume']),

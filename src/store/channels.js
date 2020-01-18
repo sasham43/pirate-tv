@@ -4,11 +4,13 @@ const state = {
     all_channels: [],
     current_channel: null,
     currently_playing: {},
+    paused: false,
 }
 const getters = {
     allChannels: state => state.all_channels,
     currentChannel: state => state.current_channel,
     currentlyPlaying: state => state.currently_playing,
+    paused: state => state.paused,
 }
 const actions = {
     async getAllChannels({commit}){
@@ -43,17 +45,22 @@ const actions = {
 
         return response
     },
-    async pause(){
+    async pause({commit}){
         axios.get('/api/pause')
+
+        commit('setPaused', true)
     },
-    async resume(){
+    async resume({commit}){
         axios.get('/api/resume')
+
+        commit('setPaused', false)
     },
 }
 const mutations = {
     setAllChannels: (state, channels)=> state.all_channels = channels,
     setCurrentChannel: (state, current) => state.current_channel = current,
     setCurrentlyPlaying: (state, channel) => state.currently_playing = channel,
+    setPaused: (state, paused) => state.paused = paused,
 }
 
 
