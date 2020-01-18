@@ -17,7 +17,7 @@ const actions = {
     async getCurrentChannel({commit}){
         const response = await axios.get('/api/current-channel')
 
-        commit('setCurrentChannel', response.data)
+        commit('setCurrentChannel', response.data.current_channel)
     },
     async selectChannel({commit}, id){
         const response = await axios.post(`/api/select-channel/${id}`)
@@ -29,16 +29,6 @@ const actions = {
     async addChannel({dispatch, getters}, channel){
         channel.id = getters.allChannels.length
         const response = await axios.post('/api/new-channel', channel)
-
-        // this.add_channel = false
-        // this.new_channel = {
-        //     name: '',
-        //     link: '',
-        //     file: '',
-        //     type: 'link'
-        // }
-        // this.getChannels()
-        // return response
 
         dispatch('getAllChannels')
 
