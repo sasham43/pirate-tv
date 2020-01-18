@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ChannelList from '../views/ChannelList.vue'
+import CurrentlyPlaying from '../views/CurrentlyPlaying.vue'
 
 Vue.use(VueRouter)
 
@@ -23,7 +24,12 @@ const routes = [
         path: '/channels',
         name: 'channels',
         component: ChannelList
-    }
+    },
+    {
+        path: '/currently-playing',
+        name: 'currently-playing',
+        component: CurrentlyPlaying
+    },
 ]
 
 const router = new VueRouter({
