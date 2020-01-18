@@ -24,7 +24,7 @@ export default {
         ...mapGetters('channels', ['currentChannel', 'currentlyPlaying'])
     },
     methods: {
-        ...mapActions('channels', ['getCurrentChannel']),
+        ...mapActions('channels', ['getCurrentChannel', 'getChannel']),
         goToMenu: function(){
             this.$router.push({
                 path: '/'
@@ -35,7 +35,9 @@ export default {
         Hex
     },
     created(){
-        this.getCurrentChannel()
+        this.getCurrentChannel().then(()=>{
+            this.getChannel(this.currentChannel)
+        })
     }
 }
 </script>

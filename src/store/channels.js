@@ -16,7 +16,7 @@ const actions = {
 
         commit('setAllChannels', response.data)
     },
-    async getChannel({commit}){
+    async getChannel({commit}, id){
         const response = await axios.get(`/api/channel/${id}`)
 
         commit('setCurrentlyPlaying', response.data)
