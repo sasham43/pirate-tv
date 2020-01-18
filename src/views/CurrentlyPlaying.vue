@@ -14,7 +14,7 @@
 
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Hex from '../components/Hex.vue'
 
 export default {
@@ -23,14 +23,18 @@ export default {
         ...mapGetters('channels', ['currentChannel'])
     },
     methods: {
+        ...mapActions('channels', ['getCurrentChannel']),
         goToMenu: function(){
             this.$router.push({
                 path: '/'
             })
-        },    
+        },
     },
     components: {
         Hex
+    },
+    created(){
+        this.getCurrentChannel()
     }
 }
 </script>
