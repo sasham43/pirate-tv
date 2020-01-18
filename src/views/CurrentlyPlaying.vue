@@ -15,12 +15,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Hex from '../components/Hex.vue'
 
 export default {
     name: 'CurrentlyPlaying',
     computed: {
         ...mapGetters('channels', ['currentChannel'])
     },
+    components: {
+        Hex
+    }
 }
 </script>
 
