@@ -19,6 +19,13 @@ const actions = {
 
         commit('setCurrentChannel', response.data)
     },
+    async selectChannel({commit}, id){
+        const response = await axios.post(`/api/select-channel/${id}`)
+
+        // dispatch('getCurrentChannel')
+
+        commit('setCurrentChannel', response.data.current_channel)
+    },
 }
 const mutations = {
     setAllChannels: (state, channels)=> state.all_channels = channels,

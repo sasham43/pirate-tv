@@ -81,13 +81,7 @@ export default {
         ...mapGetters('channels', ['currentChannel', 'allChannels']),
     },
     methods: {
-        ...mapActions('channels', ['getAllChannels', 'getCurrentChannel']),
-        // getChannels: async function(){
-        //     const response = await axios.get('/api/channels')
-        //
-        //     // console.log('response', response)
-        //     this.all_channels = response.data
-        // },
+        ...mapActions('channels', ['getAllChannels', 'getCurrentChannel', 'selectChannel']),
         goToMenu: function(){
             this.$router.push({
                 path: '/'
@@ -107,18 +101,13 @@ export default {
             this.getChannels()
             return response
         },
-        selectChannel: async function(id){
-            const response = await axios.post(`/api/select-channel/${id}`)
-
-            this.getCurrentChannel()
-
-            return response
-        },
-        // getCurrentChannel: async function(){
-        //     const response = await axios.get('/api/current-channel')
+        // selectChannel: async function(id){
+        //     const response = await axios.post(`/api/select-channel/${id}`)
         //
-        //     this.current_channel = response.data.current_channel
-        // }
+        //     this.getCurrentChannel()
+        //
+        //     return response
+        // },
     },
     created(){
         this.getAllChannels()
