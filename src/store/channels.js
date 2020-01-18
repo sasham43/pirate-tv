@@ -42,7 +42,13 @@ const actions = {
         dispatch('getAllChannels')
 
         return response
-    }
+    },
+    async pause(){
+        axios.get('/api/pause')
+    },
+    async resume(){
+        axios.get('/api/resume')
+    },
 }
 const mutations = {
     setAllChannels: (state, channels)=> state.all_channels = channels,

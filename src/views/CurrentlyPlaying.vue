@@ -10,6 +10,10 @@
             {{ currentlyPlaying.id }}
             {{ currentlyPlaying.name }}
         </div>
+        <div class="button-container">
+            <button v-if="paused" @click="resume()">Resume</button>
+            <button v-if="!paused" @click="pause()">Pause</button>
+        </div>
     </div>
 </template>
 
@@ -20,11 +24,16 @@ import Hex from '../components/Hex.vue'
 
 export default {
     name: 'CurrentlyPlaying',
+    data: function(){
+        return {
+            paused: false,
+        }
+    },
     computed: {
         ...mapGetters('channels', ['currentChannel', 'currentlyPlaying'])
     },
     methods: {
-        ...mapActions('channels', ['getCurrentChannel', 'getChannel']),
+        ...mapActions('channels', ['getCurrentChannel', 'getChannel', 'pause', 'resume']),
         goToMenu: function(){
             this.$router.push({
                 path: '/'
