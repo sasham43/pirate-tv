@@ -7,9 +7,9 @@
             All Channels
         </div>
         <div class="channel-list">
-            <div @click="selectChannel(channel.id)" class="channel" v-for="channel in all_channels" :key="channel.id">
+            <div @click="selectChannel(channel.id)" class="channel" v-for="channel in allChannels" :key="channel.id">
                 <span>{{channel.id}} {{channel.name}}</span>
-                <span class="currently-playing" v-if="current_channel == channel.id">
+                <span class="currently-playing" v-if="currentChannel == channel.id">
                     <i class="fas fa-tv"></i>
                 </span>
             </div>
@@ -60,12 +60,13 @@
 <script>
 import axios from 'axios'
 import Hex from '../components/Hex.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
     name: "ChannelList",
     data: function(){
         return {
-            all_channels: [],
+            // all_channels: [],
             add_channel: false,
             new_channel: {
                 name: '',
@@ -73,23 +74,27 @@ export default {
                 file: '',
                 type: 'link'
             },
-            current_channel: null,
+            // current_channel: null,
         }
     },
+    computed: {
+        ...mapGetters('channels', ['currentChannel', 'allChannels']),
+    },
     methods: {
-        getChannels: async function(){
-            const response = await axios.get('/api/channels')
-
-            // console.log('response', response)
-            this.all_channels = response.data
-        },
+        ...mapActions('channels', ['getAllChannels', 'getCurrentChannel']),
+        // getChannels: async function(){
+        //     const response = await axios.get('/api/channels')
+        //
+        //     // console.log('response', response)
+        //     this.all_channels = response.data
+        // },
         goToMenu: function(){
             this.$router.push({
                 path: '/'
             })
         },
         addChannel: async function(){
-            this.new_channel.id = this.all_channels.length
+            this.new_channel.id = this.allChannels.length
             const response = await axios.post('/api/new-channel', this.new_channel)
 
             this.add_channel = false
@@ -109,14 +114,14 @@ export default {
 
             return response
         },
-        getCurrentChannel: async function(){
-            const response = await axios.get('/api/current-channel')
-
-            this.current_channel = response.data.current_channel
-        }
+        // getCurrentChannel: async function(){
+        //     const response = await axios.get('/api/current-channel')
+        //
+        //     this.current_channel = response.data.current_channel
+        // }
     },
     created(){
-        this.getChannels()
+        this.getAllChannels()
         this.getCurrentChannel()
     },
     components: {
