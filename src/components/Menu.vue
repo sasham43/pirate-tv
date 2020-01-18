@@ -2,7 +2,7 @@
     <div class="menu">
         <span class="menu-text">H.I.V.E. TV</span>
         <div class="hex-container">
-            <Hex icon="fa-tv" label="Currently Playing"></Hex>
+            <Hex @click.native="goToLink('currently-playing')" icon="fa-tv" label="Currently Playing"></Hex>
             <Hex icon="fa-info" label="About"></Hex>
             <Hex icon="fa-random" label="Shuffle"></Hex>
             <Hex @click.native="goToLink('channels')" icon="fa-list" label="All Channels"></Hex>
