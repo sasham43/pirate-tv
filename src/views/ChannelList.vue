@@ -48,7 +48,7 @@
                     <input v-model="new_channel.type" type="radio" id="type_radio_file" value="file" name="type_radio" />
                 </div>
                 <div class="add-channel-button">
-                    <button @click="addChannel()">
+                    <button @click="addNewChannel()">
                         Add New Channel
                     </button>
                 </div>
@@ -58,7 +58,6 @@
 </template>
 
 <script>
-// import axios from 'axios'
 import Hex from '../components/Hex.vue'
 import { mapActions, mapGetters } from 'vuex'
 
@@ -66,7 +65,6 @@ export default {
     name: "ChannelList",
     data: function(){
         return {
-            // all_channels: [],
             add_channel: false,
             new_channel: {
                 name: '',
@@ -74,7 +72,6 @@ export default {
                 file: '',
                 type: 'link'
             },
-            // current_channel: null,
         }
     },
     computed: {
@@ -97,21 +94,7 @@ export default {
                     type: 'link'
                 }
             })
-        }
-        // addChannel: async function(){
-        //     this.new_channel.id = this.allChannels.length
-        //     const response = await axios.post('/api/new-channel', this.new_channel)
-        //
-        //     this.add_channel = false
-        //     this.new_channel = {
-        //         name: '',
-        //         link: '',
-        //         file: '',
-        //         type: 'link'
-        //     }
-        //     this.getChannels()
-        //     return response
-        // },
+        },
     },
     created(){
         this.getAllChannels()
