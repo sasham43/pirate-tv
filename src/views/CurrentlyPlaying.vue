@@ -22,6 +22,13 @@ export default {
     computed: {
         ...mapGetters('channels', ['currentChannel'])
     },
+    methods: {
+        goToMenu: function(){
+            this.$router.push({
+                path: '/'
+            })
+        },    
+    },
     components: {
         Hex
     }
