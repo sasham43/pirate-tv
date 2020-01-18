@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="currently-playing-container">
         <div class="page-icon">
             <Hex @click.native="goToMenu()" icon="fa-tv" label="Menu"></Hex>
         </div>
@@ -40,5 +40,14 @@ export default {
 </script>
 
 <style scoped>
-
+.page-icon .hex {
+    margin-left: 5px;
+}
+.current-header,
+.currently-playing {
+    text-shadow: 0px 0px 4px;
+}
+.currently-playing-container {
+    color: #ec6e2f;
+}
 </style>
