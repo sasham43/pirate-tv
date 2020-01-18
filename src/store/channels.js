@@ -26,6 +26,24 @@ const actions = {
 
         commit('setCurrentChannel', response.data.current_channel)
     },
+    async addChannel({dispatch, getters}, channel){
+        channel.id = getters.allChannels.length
+        const response = await axios.post('/api/new-channel', channel)
+
+        // this.add_channel = false
+        // this.new_channel = {
+        //     name: '',
+        //     link: '',
+        //     file: '',
+        //     type: 'link'
+        // }
+        // this.getChannels()
+        // return response
+
+        dispatch('getAllChannels')
+
+        return response
+    }
 }
 const mutations = {
     setAllChannels: (state, channels)=> state.all_channels = channels,

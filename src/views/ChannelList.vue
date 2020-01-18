@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import Hex from '../components/Hex.vue'
 import { mapActions, mapGetters } from 'vuex'
 
@@ -81,31 +81,35 @@ export default {
         ...mapGetters('channels', ['currentChannel', 'allChannels']),
     },
     methods: {
-        ...mapActions('channels', ['getAllChannels', 'getCurrentChannel', 'selectChannel']),
+        ...mapActions('channels', ['getAllChannels', 'getCurrentChannel', 'selectChannel', 'addChannel']),
         goToMenu: function(){
             this.$router.push({
                 path: '/'
             })
         },
-        addChannel: async function(){
-            this.new_channel.id = this.allChannels.length
-            const response = await axios.post('/api/new-channel', this.new_channel)
-
-            this.add_channel = false
-            this.new_channel = {
-                name: '',
-                link: '',
-                file: '',
-                type: 'link'
-            }
-            this.getChannels()
-            return response
-        },
-        // selectChannel: async function(id){
-        //     const response = await axios.post(`/api/select-channel/${id}`)
+        addNewChannel: function(){
+            this.addChannel(this.new_channel).then(()=>{
+                this.add_channel = false
+                this.new_channel = {
+                    name: '',
+                    link: '',
+                    file: '',
+                    type: 'link'
+                }
+            })
+        }
+        // addChannel: async function(){
+        //     this.new_channel.id = this.allChannels.length
+        //     const response = await axios.post('/api/new-channel', this.new_channel)
         //
-        //     this.getCurrentChannel()
-        //
+        //     this.add_channel = false
+        //     this.new_channel = {
+        //         name: '',
+        //         link: '',
+        //         file: '',
+        //         type: 'link'
+        //     }
+        //     this.getChannels()
         //     return response
         // },
     },
