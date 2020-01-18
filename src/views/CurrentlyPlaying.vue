@@ -7,7 +7,8 @@
             Currently Playing
         </div>
         <div class="currently-playing">
-            {{currentChannel}}
+            {{ currentlyPlaying.id }}
+            {{ currentlyPlaying.name }}
         </div>
     </div>
 </template>
@@ -20,7 +21,7 @@ import Hex from '../components/Hex.vue'
 export default {
     name: 'CurrentlyPlaying',
     computed: {
-        ...mapGetters('channels', ['currentChannel'])
+        ...mapGetters('channels', ['currentChannel', 'currentlyPlaying'])
     },
     methods: {
         ...mapActions('channels', ['getCurrentChannel']),
